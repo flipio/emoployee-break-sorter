@@ -1,6 +1,7 @@
 {
   "name": "employee-break-sorter",
-  "version": "0.1.0",
+	"homepage": "https://filipjelic.com/employee-sorter",
+	"version": "0.1.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.14",
