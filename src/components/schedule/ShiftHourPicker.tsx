@@ -7,7 +7,7 @@ import Select from '@material-ui/core/Select';
 
 const useStyles = makeStyles((theme) => ({
 	formControl: {
-		minWidth: 110,
+		minWidth: '75px',
 	},
 	selectEmpty: {
 		marginTop: theme.spacing(2),
@@ -21,7 +21,8 @@ interface ShiftHourPickerProps {
 }
 
 function getHourString(hour: number) {
-	return  hour < 10 ? `0${hour}` : hour;
+	const newHour = hour < 10 ? `0${hour}` : hour;
+	return `${newHour}h`;
 }
 
 export function ShiftHourPicker(props: ShiftHourPickerProps) {

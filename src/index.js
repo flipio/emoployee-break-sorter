@@ -1,8 +1,14 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+const isProduction = process.env.NODE_ENV === 'production';
+console.log('[Logger] Production env enabled: ', isProduction, process.env);
+ReactGA.initialize('UA-47345139-1', { debug: !isProduction});
+ReactGA.pageview(window.location.pathname + window.location.search);
+
 
 ReactDOM.render(
 	<React.StrictMode>

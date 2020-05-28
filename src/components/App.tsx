@@ -49,12 +49,22 @@ function App() {
 	const addEmploye = (emp: string) => {
 		employees.push(emp);
 		updateEmployes(employees);
-	}
+	};
 
 	const generateGrid = () => {
 		const newGrid = generateScheduleGrid(shiftStartHour, employees);
 		updateShiftGrid(newGrid);
-	}
+	};
+
+	const removeEmployee = (index: number) => {
+		const newEmployees = [...employees];
+		newEmployees.splice(index, 1);
+		updateEmployes(newEmployees);
+	};
+
+	const clearList = () => {
+		updateEmployes([]);
+	};
 
 	return (
 		<Container className={classes.root}>
@@ -70,15 +80,16 @@ function App() {
 							employes={employees}
 							addEmploye={addEmploye}
 							generateGrid={generateGrid}
-							clearList={() => {updateEmployes([])}}
+							clearList={clearList}
+							shiftStartHour={shiftStartHour}
+							updateShiftStartHour={updateShiftStartHour}
+							removeEmployee={removeEmployee}
 						/>
 					</Paper>
 				</Grid>
 				<Grid item xs={12} md={6}>
 					<Paper className={classes.paper}>
 						<Schedule
-							shiftStartHour={shiftStartHour}
-							updateShiftStartHour={updateShiftStartHour}
 							employeeShiftGrid={employeeShiftGrid}
 						/>
 					</Paper>
